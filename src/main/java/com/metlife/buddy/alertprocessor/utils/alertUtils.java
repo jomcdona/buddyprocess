@@ -52,7 +52,7 @@ public class alertUtils
         System.out.println("Processing for Division " + divisionID + " Day of month " + dayOfMonth + " forceDate " + forceCutOffDay);
         try
         {
-            FileReader fr = new FileReader("/Users/jonmcdonald/temp/textract.csv");
+            FileReader fr = new FileReader("/data/extract/textract.csv");
             String curline;
             if (fr != null)
             {

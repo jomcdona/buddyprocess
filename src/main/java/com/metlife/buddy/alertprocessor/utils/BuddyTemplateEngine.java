@@ -5,11 +5,15 @@ import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
 
+import com.metlife.buddy.alertprocessor.model.BuddyProfile;
+
 public class BuddyTemplateEngine {
 
-    public String buildAlertNotification()
+    public String buildAlertNotification(BuddyProfile bp)
     {
-        String alertTemplatePath = System.getenv("alertTemplatePath");
+        String alertTemplate = bp.getAlertTemplate();
+        System.out.println(alertTemplate);
+        /*String alertTemplatePath = System.getenv("alertTemplatePath");
         VelocityEngine ve = new VelocityEngine();
         ve.init();
          
@@ -27,7 +31,8 @@ public class BuddyTemplateEngine {
 
         //System.out.println(sw);
 
-        return sw.toString();
+        return sw.toString();*/
+        return "1";
          
         
     }

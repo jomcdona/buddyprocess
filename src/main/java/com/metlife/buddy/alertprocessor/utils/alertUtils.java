@@ -103,7 +103,7 @@ public class alertUtils
                 }
                 else if (oocUsers.size() > 0)
                 {
-                    sendAlert(oocUsers);
+                    sendAlert(bp, oocUsers);
                     retval = 0;
                 }
                 else //all time entered successfully
@@ -139,7 +139,7 @@ public class alertUtils
         return retval;
     }
 
-    private static void sendAlert(ArrayList<OutOfComplianceUser> oocUsers)
+    private static void sendAlert(BuddyProfile bp, ArrayList<OutOfComplianceUser> oocUsers)
     {
         System.out.println("Sending Alert to users\n");
         for (int i = 0; i < oocUsers.size(); ++i)
@@ -149,7 +149,7 @@ public class alertUtils
 
         }
 
-        BuddyTemplateEngine bte = new BuddyTemplateEngine();
+        BuddyTemplateEngine bte = new BuddyTemplateEngine(bp);
         String alertBody = bte.buildAlertNotification();
         System.out.println(alertBody);
     }

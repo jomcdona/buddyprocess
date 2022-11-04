@@ -52,7 +52,8 @@ public class alertUtils
         System.out.println("Processing for Division " + divisionID + " Day of month " + dayOfMonth + " forceDate " + forceCutOffDay);
         try
         {
-            FileReader fr = new FileReader("/data/extract/textract.csv");
+            String ExtractFilePath = System.getenv("ExtractPath");
+            FileReader fr = new FileReader(ExtractFilePath);
             String curline;
             if (fr != null)
             {
@@ -115,15 +116,25 @@ public class alertUtils
 
         catch(FileNotFoundException fne)
         {
+            //todo: use log4j to output this to a log file
+            //note: by intent this only needs to be logged for trouble shooting
+            //versus more intentional exeption handling.  The process should return a 
+            //200 ok response with a value of 0 to indicate that the workflow process
+            //that invoked this service needs to stay running and make another attempt
+            //to access the file at the next scheduled interval.
             System.out.println("File Not Located " + fne.getMessage());
         }
 
         catch(IOException ioe)
         {
+            //todo: use log4j to output this to a log file
+            //note: by intent this only needs to be logged for trouble shooting
+            //versus more intentional exeption handling.  The process should return a 
+            //200 ok response with a value of 0 to indicate that the workflow process
+            //that invoked this service needs to stay running and make another attempt
+            //to access the file at the next scheduled interval.
             System.out.println("Error reading file " + ioe.getMessage());
-        }
-
-        
+        } 
         
         return retval;
     }

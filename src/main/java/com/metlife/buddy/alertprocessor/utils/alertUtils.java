@@ -148,6 +148,10 @@ public class alertUtils
             System.out.println(oocu.getEmpEmail());
 
         }
+
+        BuddyTemplateEngine bte = new BuddyTemplateEngine();
+        String alertBody = bte.buildAlertNotification();
+        System.out.println(alertBody);
     }
 
     private static void sendProcessIncompleteNotification(BuddyProfile bp)

@@ -149,8 +149,8 @@ public class alertUtils
 
         }
 
-        BuddyTemplateEngine bte = new BuddyTemplateEngine(bp);
-        String alertBody = bte.buildAlertNotification();
+        BuddyTemplateEngine bte = new BuddyTemplateEngine();
+        String alertBody = bte.buildAlertNotification(bp);
         System.out.println(alertBody);
     }
 
